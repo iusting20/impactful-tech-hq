@@ -1,0 +1,156 @@
+ul { list-style: none; }
+a { text-decoration: none; color: black;}
+body {
+   font-family: 'Dosis', sans-serif;
+   background: #FF5722;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Menu Container */
+#menu-container {
+  width: 300px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hamburger Menu */
+#hamburger-menu {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  margin: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#hamburger-menu span {
+  background: #fff;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#hamburger-menu span:nth-child(1) {
+  top: 0;
+}
+
+#hamburger-menu span:nth-child(2) {
+  top: 11px;
+}
+
+#hamburger-menu span:nth-child(3) {
+  top: 22px;
+}
+
+#hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 11px;
+}
+
+#hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 11px;
+}
+
+/* Menu List */
+.menu-list {
+  list-style: none;
+}
+
+.menu-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.menu-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Icons */
+.icon-plus {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.rotate-45 {
+  transform: rotate(225deg);
+}
+
+/* Submenu */
+.menu-submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  transition: max-height 0.3s ease;
+}
+
+.menu-submenu li a {
+  padding: 10px 40px;
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu-submenu li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Active States */
+.accordion-toggle.active + .menu-submenu {
+  max-height: 500px; /* Arbitrary max height for transition */
+}
+
+.accordion-toggle.active .icon-plus {
+  transform: rotate(225deg);
+}
+
+/* Fancy Animations */
+.menu-link {
+  position: relative;
+}
+
+.menu-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  left: 50%;
+  bottom: 10px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.menu-link:hover::after {
+  width: 100%;
+  left: 0;
+}
